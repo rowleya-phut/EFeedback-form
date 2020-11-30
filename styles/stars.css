@@ -1,0 +1,38 @@
+/* https://gist.github.com/blairanderson/7f9d1c08345c6573e09edaa1f7316fa1 */
+
+/* position the rating element on left of screen */
+.rating {
+    float:left;
+}
+
+/* target input elements that are direct descendents of rating element and hides by specifying it is shown in a zero sized rect */
+.rating > input {
+    position:absolute;
+    /* top:-9999px; */
+    clip:rect(0,0,0,0);
+}
+
+/* target label elements that are direct descendents of rating class div */
+.rating > label {
+    /* float:right; */
+    width:1em;
+    padding:0 .1em;
+    /* overflow:hidden; */
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:300%;
+    line-height:1.2;
+    color:#ddd;
+}
+
+/* target labels that are direct descendents of rating class and insert star */
+.rating > label:before {
+    content: '★ ';
+}
+
+/* target currently clicked label elements that are direct descendents of rating element */
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}

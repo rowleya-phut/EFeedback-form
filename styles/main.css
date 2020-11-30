@@ -1,0 +1,432 @@
+/* SECTION 1 */
+/* flexbox styling */
+#flex-container-main-1{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 2px black; */
+    /* background-color: DodgerBlue; */
+}
+
+/* main sub boxes */
+#sub-main-1-A{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px lightgrey;
+    /* background-color: lightgrey; */
+}
+
+#sub-main-1-B{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px lightgrey;
+    /* background-color: lightgrey;     */
+}
+
+#sub-main-1-C{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px blue;
+    background-color: lightgrey;     */
+}
+
+/* the 4 3 star ratings questions section */
+#question-11,
+#question-12
+{
+    margin-bottom: 15px;
+}
+
+#sub-question-11{
+    display: flex;
+    flex-direction: row;
+    /* border: solid 1px blue;
+    background-color: lightgrey; */
+}
+/* left side of star ratings questions */
+#question-11-A{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px greenyellow; */
+    /* background-color: lightgreen; */
+    width: 70%;
+    /* height: 30%; */
+}
+
+#sub-question-11-A-a,
+#sub-question-11-A-b,
+#sub-question-11-A-c,
+#sub-question-11-A-d
+{
+    flex-wrap: nowrap;
+    height:25%;
+    /* border: 1px solid black; */
+    margin-bottom: -20px !important;
+    margin-top: 10px !important;
+}
+
+/* right side of star ratings questions */
+#question-11-B{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px purple;
+    background-color: lightsteelblue; */
+    width: 30%;
+    align-items: flex-end;
+}
+
+
+
+#sub-question-11-A-a{
+    color: transparent;
+}
+
+/* questions style */
+#sub-question-11-B-a,
+#sub-question-11-B-b,
+#sub-question-11-B-c,
+#sub-question-11-B-d
+{
+    display: flex;
+    /* font-size: 30px; */
+    flex-wrap: nowrap;
+    height:12%;
+    
+}
+
+/* star labels style */
+#sub-question-11-B-a-1,
+#sub-question-11-B-a-2,
+#sub-question-11-B-a-3,
+#sub-question-11-B-a-4{
+    margin-left:32.5px;
+    margin-right: 10px;
+}
+
+
+
+/* single star rating question 13 */
+#question-13{
+    margin-top: -50px !important;
+}
+
+#sub-question-13{
+    display: flex;
+    flex-direction: row;
+    /* border: solid 1px blue;
+    background-color: lightgrey; */
+    align-items: flex-end;
+}
+/* left of question */
+#question-13-A{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px greenyellow;
+    background-color: lightgreen; */
+    width: 70%;
+}
+/* right of question */
+#question-13-B{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-left: 170px;
+}
+/* right of question */
+#question-13-B-a,
+#question-13-B-b,
+#question-13-B-c,
+#question-13-B-d{
+    padding-left: 40px;
+}
+
+/* SECTION 2 */
+/* main section box */
+#sub-main-2-A{
+    border-bottom: solid 1px lightgrey;    
+}
+
+#sub-main-2-B{
+    display: flex;
+    flex-direction: row;
+    /* border-bottom: solid 1px lightgrey; */
+    /* background-color: lightgrey;     */
+}
+
+/* star rating questions */
+/* left of question */
+#question-22-A{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px greenyellow;
+    background-color: lightgreen; */
+    width: 70%;
+}
+/* right of question containing stars */
+#question-22-B{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px purple;
+    background-color: lightsteelblue; */
+    width: 30%;
+    align-items: flex-end;
+}
+
+/* styling of questions */
+#sub-question-22-A-a,
+#sub-question-22-A-b
+{
+    flex-wrap: nowrap;
+    height:25%;
+    /* border: 1px solid black; */
+    margin-bottom: 20px !important;
+    margin-top: 10px !important;
+    
+}
+/* styling of stars */
+#sub-question-22-B-a,
+#sub-question-22-B-b
+{
+    display: flex;
+    /* font-size: 30px; */
+    flex-wrap: nowrap;
+    height:25%;  
+}
+/* END OF SECTION 2 */
+
+/* SECTION 3 */
+#flex-container-main-3{
+    display: flex;
+    flex-direction: column;
+
+    /* border: solid 2px black;
+    background-color: DodgerBlue; */
+}
+
+/* multi-choice trainer descriptions section */
+#sub-main-3-A{
+    display: flex;
+    flex-direction: column;
+}
+
+#question-31{
+    padding-bottom: 10px;
+}
+/* container for columns */
+#sub-question-31-A{
+    display: flex;
+    flex-direction: row;
+    /* background-color: yellow; */
+}
+/* column 1 of trainer multi-choice  */
+#sub-question-31-A-a{
+    flex-direction: column;
+    width: 50%;
+    /* background-color: yellowgreen; */
+}
+
+/* column 2 of trainer multi-choice */
+#sub-question-31-A-b{
+    flex-direction: column;
+    width: 50%;
+    /* background-color: lightgoldenrodyellow; */
+}
+
+/* single star rating question */
+#sub-main-3-B{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px lightgrey;    
+}
+
+#question-32{
+    margin-top: -50px !important;
+}
+
+#sub-question-32{
+    display: flex;
+    flex-direction: row;
+    /* border: solid 1px blue;
+    background-color: lightgrey; */
+    align-items: flex-end;
+}
+/* left of question */
+#question-32-A{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px greenyellow;
+    background-color: lightgreen; */
+    width: 70%;
+}
+/* right of question */
+#question-32-B{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-left: 150px;
+}
+
+#question-32-B > label{
+    margin-left: 5px;
+}
+
+/* multi-choice star rating question 33*/
+#sub-main-3-C{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px lightgrey;  
+    /* background-color: DodgerBlue;   */
+}
+
+#sub-question-33-title{
+    display: flex;
+    flex-direction: row;    
+}
+
+#question-33{
+    display: flex;
+    flex-direction: row; 
+    width: 100%; 
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+#sub-question-33-key{
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-end; 
+    /* background-color: yellow; */
+    width: 40%;  
+
+}
+
+/* key style */
+#sub-question-33-key > div{
+    text-align: center;
+    display: flex;
+    flex-direction: column; 
+    /* border: 1px solid black;  */
+    width: 20%;  
+}
+
+.five-star > label{
+    /* width: 19%; */
+}
+
+#sub-question-33{
+    display: flex;
+    flex-direction: row;  
+}
+
+#sub-question-33-A{
+    /* background-color: yellowgreen; */
+    display: flex;
+    flex-direction: column; 
+    width: 60%; 
+    /* margin-top: 20px; */
+}
+
+#sub-question-33-B{
+    /* background-color: lightgoldenrodyellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 40%;
+}
+
+#sub-question-33-B > div{
+    margin-top: -20px;
+    height: 20%;
+}
+
+/* questions style */
+#sub-question-33-A > div{
+    display: flex;
+    /* font-size: 30px; */
+    flex-wrap: nowrap;
+    /* height:10%; */
+    margin-bottom: 20px;
+}
+
+#sub-main-3-D{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px lightgrey;
+}
+/* question 34 */
+#question-34{
+    padding-bottom: 10px;
+}
+/* container for columns */
+#sub-question-34-A{
+    display: flex;
+    flex-direction: row;
+    /* background-color: yellow; */
+}
+/* column 1 of experience multi-choice  */
+#sub-question-34-A-a{
+    flex-direction: column;
+    width: 33%;
+    /* background-color: yellowgreen; */
+}
+
+/* column 2 of experience multi-choice */
+#sub-question-34-A-b{
+    flex-direction: column;
+    width: 33%;
+    /* background-color: lightgoldenrodyellow; */
+}
+
+/* column 2 of experience multi-choice */
+#sub-question-34-A-c{
+    flex-direction: column;
+    width: 34%;
+    /* background-color: lightgoldenrodyellow; */
+}
+
+
+/* free text field */
+#sub-main-3-E{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px lightgrey;
+}
+
+/* END OF SECTION 3 */
+
+/* radio button styling */
+input[type=checkbox],
+input[type=radio] {
+    -ms-transform: scale(2); /* IE 9 */
+    -webkit-transform: scale(2); /* Chrome, Safari, Opera */
+    transform: scale(2);
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+/* general styling */
+
+.panel-body#sectionZero {
+    background:#ffe6ff;}
+
+.panel-body#sectionOne {
+    background:#e6ffe6;}
+
+.panel-body#sectionTwo {
+    background:#e6ffff;}
+
+.panel-body#sectionThree {
+    background:#ffffe6;}
+
+body{
+    font-size: 17px;
+    min-width:1000px !important;
+}
+
+.btn-submit {
+    width: 100%;
+    height: 50px;
+    font-size: 30px;
+}
+
+
