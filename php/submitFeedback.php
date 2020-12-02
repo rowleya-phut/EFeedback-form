@@ -9,6 +9,14 @@ print_r($_POST);
 $uniqueId = time();
 //print_r($uniqueId);
 
+//handle null data from manual field
+$manual = 0;
+if(empty($_POST["manual"])){
+    $manual = 0;
+} else {
+    $manual = $_POST["manual"];
+}
+
 $sql = "INSERT INTO evaluation_tbl(
     evaluationId,
     StaffGroupId, 
