@@ -14,6 +14,7 @@ function generateRandomString($length = 10) {
     for ($i = 0; $i < $length; $i++) {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
+    $randomString = '021220 test 1';
     return $randomString;
 }
 $testMessage = generateRandomString();
@@ -116,63 +117,3 @@ else{
     print_r("Fail");
 }
 ?>
-
-
-<!-- INSERT INTO evaluation_tbl(
-    evaluationId,
-    StaffGroupId, 
-    DepartmentId, 
-    CourseId, 
-    Attend_in_own_time, 
-    Content_A_help_in_role, 
-    Content_B_meet_objectives, 
-    Content_C_help_department, 
-    Content_D_previous_knowledge, 
-    Content_E_satisfied_with_content, 
-    Learning_A_how_much_learned, 
-    Learning_B_how_much_improved, 
-    Learning_C_how_capable, 
-    Quality_B_trainer_rating, 
-    Quality_C_manual, 
-    Quality_D_other_materials, 
-    Quality_E_admin, 
-    Quality_F_environment, 
-    Free_Comment,
-    Time_accessed,
-    RoomId
-    ) VALUES (
-    1583767633,
-    '1',
-    '2',
-    '1',
-    '3',
-    '4',
-    '4',
-    '4',
-    '2',
-    '4',
-    '3',
-    '4',
-    '4',
-    '4',
-    '4',
-    '4',
-    '4',
-    '4',
-    'ed',
-    '1583767597088',
-    'e371'
-);INSERT INTO eval_quality_trainer_tbl(
-            evaluationId,
-            trainingRatingId
-            ) VALUES (
-                1583767633,
-                8 
-            );INSERT INTO eval_impact_trainer_tbl(
-            evaluationId,
-            impactId
-            ) VALUES (
-                1583767633,
-                5 
-            );Fail -->
-
