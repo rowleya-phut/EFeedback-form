@@ -4,13 +4,23 @@ header("Access-Control-Allow-Origin: *");
 
 include "config.php";
 
+  
+  $queryString = "
+  SELECT * FROM evaluation_tbl
+  ";
 
-if (!$db_select) {
-    die("Database selection failed: " . mysqli_error($connection));
-}else{
+	$result = mysqli_query($connection, $queryString);
+    
+    //Initialize array variable
+    $dbdata = array();
+
+  //Fetch into associative array
+    while ( $row = $result->fetch_assoc())  {
+      $dbdata[]=$row;
+    }
   
 
 
+  //Print array in JSON format
+   echo json_encode($dbdata);
   
-}
-?>
