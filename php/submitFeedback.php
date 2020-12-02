@@ -12,10 +12,20 @@ $uniqueId = time();
 //handle null data from manual field
 $manual = 0;
 if(empty($_POST["manual"])){
+    echo "Manual field is set at " .$_POST["manual"] ."!!";
     $manual = 0;
 } else {
     $manual = $_POST["manual"];
 }
+
+//handle null data in free comment field (already okay technically but nice to leave something for person accessing db)
+$freeComment = 0;
+if(empty($_POST["Free_comment"])){
+    $freeComment = "No free-text comment left by trainee";
+} else {
+    $freeComment = $_POST["Free_comment"];
+}
+
 
 $sql = "INSERT INTO evaluation_tbl(
     evaluationId,
@@ -54,11 +64,11 @@ $sql = "INSERT INTO evaluation_tbl(
     '".$_POST["how_much_improved"]."',
     '".$_POST["how_capable"]."',
     '".$_POST["trainer_rating"]."',
-    '".$_POST["manual"]."',
+    '$manual',
     '".$_POST["other_materials"]."',
     '".$_POST["admin"]."',
     '".$_POST["environment"]."',
-    '".$_POST["Free_comment"]."',
+    '$freeComment',
     '".$_POST["timeAccessed"]."', 
     '".$_POST["room"]."'
 );";

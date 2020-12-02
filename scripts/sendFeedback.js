@@ -192,8 +192,8 @@ $( document ).ready(function() {
                 .done(function (data) { 
                     console.log('Submission successful');
                     console.log(data);
-        //clear the form so when back is pressed the data is not still there
-        $("#feedbackForm")[0].reset(); 
+                //clear the form so when back is pressed the data is not still there
+                $("#feedbackForm")[0].reset(); 
                     
                     //redirect to success page
                     window.location='success.html'
