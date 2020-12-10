@@ -25,7 +25,7 @@ if(empty($_POST["Free_comment"])){
 } else {
     $freeComment = $_POST["Free_comment"];
 }
-
+//TODO - add hidden nullable personal fields data (checked, name, jobtitle) to db and update the query below
 
 $sql = "INSERT INTO evaluation_tbl(
     evaluationId,
