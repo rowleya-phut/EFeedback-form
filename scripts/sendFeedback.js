@@ -193,10 +193,10 @@ $( document ).ready(function() {
                     console.log('Submission successful');
                     console.log(data);
                 //clear the form so when back is pressed the data is not still there
-                $("#feedbackForm")[0].reset(); 
+                // $("#feedbackForm")[0].reset(); 
                     
                     //redirect to success page
-                    window.location='success.html'
+                    // window.location='success.html'
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
                     console.log("Error" + errorThrown);
