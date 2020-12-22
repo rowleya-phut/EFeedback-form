@@ -40,7 +40,7 @@ crossorigin="anonymous"></script>
     <div class="container">
         
         <div class="page-header">
-          <h1>E-Feedback Form <small>Feedback for PatientCentre Courses</small></h1>
+          <h1>IT Training Digital Feedback Form<small></small></h1>
         </div>
 
         <!-- PUT ALL THIS IN A FORM-->
@@ -339,6 +339,24 @@ crossorigin="anonymous"></script>
                         <textarea class="form-control" rows="4" cols="50" name="Free_comment" placeholder="Enter your comment here..."></textarea>
                     </div>
                 </div>
+
+                <!-- optional personal details section -->
+                <div id="sub-main-3-F">
+                    <br/>
+                    <input class="personal" type="checkbox" name="personal" id="personalCheck" value="1">Tick the box if you wish to leave your details for a personal response <br/>
+                    
+                    <!-- initially hidden name field -->
+                    <div class="form-group hidden" id="personalName">
+                        <textarea class="form-control" rows="1" cols="25" name="personal-name" placeholder="Enter your name here to be contacted by IT Training"></textarea>
+                    </div>
+
+                    <div class="form-group hidden" id="jobTitle">
+                        <textarea class="form-control" rows="1" cols="25" name="job-title" placeholder="Enter your job title here..."></textarea>
+                    </div>
+                
+                </div>
+
+                <!-- end of optional personal details section -->
             </div>
             <!--end of flexbox layout-->
         <!--end of panel body-->
@@ -361,6 +379,7 @@ crossorigin="anonymous"></script>
     <script src="scripts/readDropdowns.js"></script>
     <script src="scripts/starHover.js"></script>
     <script src="scripts/sendFeedback.js"></script>
+    <script src="scripts/optionalPersonalResponse.js"></script>
 <!-- testing -->
     <!-- <script src="scripts/test.js"></script> -->
 </body>

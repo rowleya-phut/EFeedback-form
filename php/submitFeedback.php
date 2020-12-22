@@ -25,7 +25,7 @@ if(empty($_POST["Free_comment"])){
 } else {
     $freeComment = $_POST["Free_comment"];
 }
-
+//TODO - add hidden nullable personal fields data (checked, name, jobtitle) to db and update the query below
 
 $sql = "INSERT INTO evaluation_tbl(
     evaluationId,
@@ -48,7 +48,9 @@ $sql = "INSERT INTO evaluation_tbl(
     Quality_F_environment, 
     Free_Comment,
     Time_accessed,
-    RoomId
+    RoomId,
+    Personal_Name,
+    Job_Title
     ) VALUES (
     $uniqueId,
     '".$_POST["staffGroup"]."',
@@ -70,7 +72,9 @@ $sql = "INSERT INTO evaluation_tbl(
     '".$_POST["environment"]."',
     '$freeComment',
     '".$_POST["timeAccessed"]."', 
-    '".$_POST["room"]."'
+    '".$_POST["room"]."',
+    '".$_POST["personal-name"]."',
+    '".$_POST["job-title"]."'
 );";
 
     //NOTE FOR WRITE UP THE TIME accessed has been adding three extra digits ONLY when trying to submit 
