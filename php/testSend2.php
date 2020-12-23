@@ -50,7 +50,8 @@ $sql = "INSERT INTO evaluation_tbl(
     Quality_F_environment, 
     Free_Comment,
     Time_accessed,
-    RoomId
+    RoomId,
+    CourseType
     ) VALUES (
     $uniqueId,
     5,
@@ -72,7 +73,8 @@ $sql = "INSERT INTO evaluation_tbl(
     1,
     '$testMessage',
     $uniqueId,
-    '$testRoom'
+    '$testRoom',
+    'video'
 );";
 
     $trainerArray = array(1,2,3);

@@ -50,7 +50,8 @@ $sql = "INSERT INTO evaluation_tbl(
     Time_accessed,
     RoomId,
     Personal_Name,
-    Job_Title
+    Job_Title,
+    CourseType
     ) VALUES (
     $uniqueId,
     '".$_POST["staffGroup"]."',
@@ -74,7 +75,8 @@ $sql = "INSERT INTO evaluation_tbl(
     '".$_POST["timeAccessed"]."', 
     '".$_POST["room"]."',
     '".$_POST["personal-name"]."',
-    '".$_POST["job-title"]."'
+    '".$_POST["job-title"]."',
+    '".$_POST["type"]."'
 );";
 
     //NOTE FOR WRITE UP THE TIME accessed has been adding three extra digits ONLY when trying to submit 

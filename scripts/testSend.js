@@ -31,6 +31,6 @@ $( document ).ready(function() {
         } else {
             alert("You have not answered all mandatory questions");
         }
-    });
+    };
 
 });
