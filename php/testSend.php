@@ -52,7 +52,7 @@ $sql = "INSERT INTO evaluation_tbl(
     Free_Comment,
     Time_accessed,
     RoomId,
-    CourseType
+    CourseTypeId
     ) VALUES (
     $uniqueId,
     5,
