@@ -50,6 +50,8 @@ for( $i = 0; $i<1; $i++ ) {
     $threeArray = array(1,2,3);
     $twoArray = array(1,2);
     $zeroarray = array(0,1,2,3,4);
+    $nameArray = array("Alice Alfred", "Bob Banjo", "Cara Carrot", "Dave Deacon");
+    $roleArray = array("Clerical on A4", "Clerical on B4", "Nurse on C2", "Admin on E4");
 
     $staff = pickOneFromArray($staffArray);
     $dep = pickOneFromArray($depArray);
@@ -68,8 +70,63 @@ for( $i = 0; $i<1; $i++ ) {
     $otherMaterials = pickOneFromArray($fourArray);
     $admin = pickOneFromArray($fourArray);
     $environment = pickOneFromArray($fourArray);
+    $name = pickOneFromArray($nameArray);
+    $role = pickOneFromArray($roleArray);
 
-    $sql = "INSERT INTO evaluation_tbl(
+
+    $sqlNamed = "INSERT INTO evaluation_tbl(
+        evaluationId,
+        StaffGroupId, 
+        DepartmentId, 
+        CourseId, 
+        Attend_in_own_time, 
+        Content_A_help_in_role, 
+        Content_B_meet_objectives, 
+        Content_C_help_department, 
+        Content_D_previous_knowledge, 
+        Content_E_satisfied_with_content, 
+        Learning_A_how_much_learned, 
+        Learning_B_how_much_improved, 
+        Learning_C_how_capable, 
+        Quality_B_trainer_rating, 
+        Quality_C_manual, 
+        Quality_D_other_materials, 
+        Quality_E_admin, 
+        Quality_F_environment, 
+        Free_Comment,
+        Time_accessed,
+        RoomId,
+        Personal_Name,
+        Job_Title,
+        CourseTypeId
+        ) VALUES (
+        $uniqueId,
+        $staff,
+        $dep,
+        $course,
+        $attendInOwnTime,
+        $helpinWork,
+        $objectives,
+        $depGoals,
+        $preKnowledge,
+        $satisfied,
+        $howMuchLearned,
+        $howMuchImp,
+        $howCapable,
+        $rateTrainer,
+        $manual,
+        $otherMaterials,
+        $admin,
+        $environment ,
+        '$testMessage',
+        $uniqueId,
+        '$testRoom',
+        '$name',
+        '$role',
+        '$testType'
+    );";
+
+    $sqlAnon = "INSERT INTO evaluation_tbl(
         evaluationId,
         StaffGroupId, 
         DepartmentId, 
@@ -116,6 +173,10 @@ for( $i = 0; $i<1; $i++ ) {
         '$testRoom',
         '$testType'
     );";
+
+    $sqlArray = array($sqlNamed, $sqlAnon);
+
+    $sql = pickOneFromArray($sqlArray);
 
     //test arrays
     $videoTrainer0 = array(1,4,5);
