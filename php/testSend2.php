@@ -50,7 +50,8 @@ $sql = "INSERT INTO evaluation_tbl(
     Quality_F_environment, 
     Free_Comment,
     Time_accessed,
-    RoomId
+    RoomId,
+    CourseTypeId
     ) VALUES (
     $uniqueId,
     5,
@@ -72,7 +73,8 @@ $sql = "INSERT INTO evaluation_tbl(
     1,
     '$testMessage',
     $uniqueId,
-    '$testRoom'
+    '$testRoom',
+    'video'
 );";
 
     $trainerArray = array(1,2,3);
@@ -83,10 +85,12 @@ $sql = "INSERT INTO evaluation_tbl(
         //print_r($value);
         $tr_sql = "INSERT INTO eval_quality_trainer_tbl(
             evaluationId,
-            trainingRatingId
+            trainingRatingId,
+            CourseTypeId
             ) VALUES (
                 $uniqueId,
-                $value 
+                $value,
+                'video' 
             );";
         $sql = $sql.$tr_sql;
     }
@@ -96,10 +100,12 @@ $sql = "INSERT INTO evaluation_tbl(
         //print_r($value);
         $tr_sql = "INSERT INTO eval_impact_trainer_tbl(
             evaluationId,
-            impactId
+            impactId,
+            CourseTypeId
             ) VALUES (
                 $uniqueId,
-                $value 
+                $value,
+                'video' 
             );";
         $sql = $sql.$tr_sql;
     }

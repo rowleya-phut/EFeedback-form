@@ -11,11 +11,12 @@ $uniqueId = time();
 
 //handle null data from manual field
 $manual = 0;
-if(empty($_POST["manual"])){
-    echo "Manual field is set at " .$_POST["manual"] ."!!";
-    $manual = 0;
-} else {
+
+if(isset($_POST["manual"])){
     $manual = $_POST["manual"];
+} else {
+    // echo "Manual field is set at zero !!";
+    $manual = 0;
 }
 
 //handle null data in free comment field (already okay technically but nice to leave something for person accessing db)
@@ -25,7 +26,7 @@ if(empty($_POST["Free_comment"])){
 } else {
     $freeComment = $_POST["Free_comment"];
 }
-//TODO - add hidden nullable personal fields data (checked, name, jobtitle) to db and update the query below
+
 
 $sql = "INSERT INTO evaluation_tbl(
     evaluationId,
@@ -50,7 +51,8 @@ $sql = "INSERT INTO evaluation_tbl(
     Time_accessed,
     RoomId,
     Personal_Name,
-    Job_Title
+    Job_Title,
+    CourseTypeId
     ) VALUES (
     $uniqueId,
     '".$_POST["staffGroup"]."',
@@ -74,7 +76,8 @@ $sql = "INSERT INTO evaluation_tbl(
     '".$_POST["timeAccessed"]."', 
     '".$_POST["room"]."',
     '".$_POST["personal-name"]."',
-    '".$_POST["job-title"]."'
+    '".$_POST["job-title"]."',
+    '".$_POST["type"]."'
 );";
 
     //NOTE FOR WRITE UP THE TIME accessed has been adding three extra digits ONLY when trying to submit 
@@ -91,10 +94,12 @@ $sql = "INSERT INTO evaluation_tbl(
         //print_r($value);
         $tr_sql = "INSERT INTO eval_quality_trainer_tbl(
             evaluationId,
-            trainingRatingId
+            trainingRatingId,
+            CourseTypeId
             ) VALUES (
                 $uniqueId,
-                $value 
+                $value,
+                '".$_POST["type"]."' 
             );";
         $sql = $sql.$tr_sql;
     }
@@ -104,10 +109,12 @@ $sql = "INSERT INTO evaluation_tbl(
         //print_r($value);
         $tr_sql = "INSERT INTO eval_impact_trainer_tbl(
             evaluationId,
-            impactId
+            impactId,
+            CourseTypeId
             ) VALUES (
                 $uniqueId,
-                $value 
+                $value,
+                '".$_POST["type"]."'
             );";
         $sql = $sql.$tr_sql;
     }

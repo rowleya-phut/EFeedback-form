@@ -224,7 +224,8 @@ crossorigin="anonymous"></script>
         <div class="panel-body" id="sectionThree">
             <!--flexbox layout-->
             <div id="flex-container-main-3">
-                <div id="sub-main-3-A">
+                <!--trainer-->
+                <div id="sub-main-3-A" class="trainer">
                     <div id="question-31" class="qualitya">
                         Please look at the following descriptions of the trainer(s) and tick all that apply.
                     </div>
@@ -243,10 +244,37 @@ crossorigin="anonymous"></script>
                         </div>
                     </div>
                 </div>
+
+                <!--video-->
+                <div id="sub-main-3-A" class="video">
+                    <div id="question-31" class="qualitya">
+                        Please look at the following descriptions of the content and tick all that apply.
+                    </div>
+                    <div id="sub-question-31-A">
+                        <div id="sub-question-31-A-a" class="qualitya">
+                            <input class="trainer_desc other" type="checkbox" name="trainer_desc[]" id="trainer_desc_1" value="1"> The course content was easily accessed<br/>
+                            <!-- <input class="trainer_desc other" type="checkbox" name="trainer_desc[]" id="trainer_desc_2" value="2"> The learning objectives were clear at the start?<br/> -->
+                            <input class="trainer_desc other" type="checkbox" name="trainer_desc[]" id="trainer_desc_3" value="3"> It was easy to see my progress<br/>
+                            <input class="trainer_desc other" type="checkbox" name="trainer_desc[]" id="trainer_desc_4" value="4"> Made learning objectives clear at the start<br/>
+                        </div>
+                        <div id="sub-question-31-A-b" class="qualitya">
+
+                            <input class="trainer_desc other" type="checkbox" name="trainer_desc[]" id="trainer_desc_5" value="5"> The course completion instructions were clear<br/>
+                            <!-- <input class="trainer_desc other" type="checkbox" name="trainer_desc[]" id="trainer_desc_6" value="6"> Answered questions well<br/> -->
+                            <input class="trainer_desc other" type="checkbox" name="trainer_desc[]" id="trainer_desc_7" value="7"> The information presented was clear and concise<br/>
+                            <input class="trainer_desc none" type="checkbox" name="trainer_desc[]" id="trainer_desc_8" value="8"> None of these apply<br/>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div id="sub-main-3-B">
                     <div id="sub-question-32">
-                        <div id="question-32-A">
+                        <div class="trainer" id="question-32-A">
                             <div id="question-32">How would you rate the trainer?</div>
+                        </div>
+                        <div class="video" id="question-32-A">
+                            <div id="question-32">How would you rate video/eLearning?</div>
                         </div>
                         <div id="question-32-B" class="form-group rating starRating">
                             <input type="radio" name="trainer_rating" id="trainer_rating_1" value="1"><label for="trainer_rating_1"></label>
@@ -274,7 +302,7 @@ crossorigin="anonymous"></script>
                                 Pre-training administration
                             </div>
                             <div id="sub-question-33-A-d">
-                                The training room environment
+                                The training environment (where you are doing the training)
                             </div>
                         </div>
                         <div id="sub-question-33-B">
@@ -376,6 +404,8 @@ crossorigin="anonymous"></script>
        
 
     <!-- scripts -->
+    <script src="scripts/getUrl.js"></script>
+    <script src="scripts/courseType.js"></script>
     <script src="scripts/readDropdowns.js"></script>
     <script src="scripts/starHover.js"></script>
     <script src="scripts/sendFeedback.js"></script>
