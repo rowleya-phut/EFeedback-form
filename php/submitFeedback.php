@@ -11,11 +11,12 @@ $uniqueId = time();
 
 //handle null data from manual field
 $manual = 0;
-if(empty($_POST["manual"])){
-    echo "Manual field is set at " .$_POST["manual"] ."!!";
-    $manual = 0;
-} else {
+
+if(isset($_POST["manual"])){
     $manual = $_POST["manual"];
+} else {
+    // echo "Manual field is set at zero !!";
+    $manual = 0;
 }
 
 //handle null data in free comment field (already okay technically but nice to leave something for person accessing db)
