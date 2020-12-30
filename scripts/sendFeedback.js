@@ -194,7 +194,7 @@ $( document ).ready(function() {
                 //clear the form so when back is pressed the data is not still there
                 $("#feedbackForm")[0].reset(); 
                     
-                    redirect to success page
+                    //redirect to success page
                     window.location='success.html'
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
