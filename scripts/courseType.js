@@ -1,12 +1,13 @@
-$( document ).ready(function() {
-    //get the room URL parameter
-    var courseType = getUrlParameter('type');
-    console.log("THE COURSE TYPE IS " + courseType);
-    if(!courseType){
-        alert("Enter a course type in the URL e.g. 'efeedback.html?type=trainer&room=VLE'");
+    function getCourseType(){
+        var courseType = getUrlParameter('type');
+        console.log("THE COURSE TYPE IS " + courseType);
+        if(!courseType){
+            alert("Enter a course type in the URL e.g. 'efeedback.html?type=trainer&room=VLE'");
+        }
+        return courseType;
     }
 
-    function displayTypeQuestions(){
+    function displayTypeQuestions(courseType){
         if (courseType === "video"){
             $(".trainer").each(function(i, el){
                 $(this).remove();
@@ -15,10 +16,7 @@ $( document ).ready(function() {
             $(".video").each(function(i, el){
                 $(this).remove();
             })
-        }
+        } 
     }
-
-    displayTypeQuestions();
-
-
-});
+    // var courseType = getCourseType();
+    // displayTypeQuestions();

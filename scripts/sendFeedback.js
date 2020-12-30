@@ -42,6 +42,10 @@ $( document ).ready(function() {
         alert("Enter a room type in the URL e.g. 'efeedback.html?type=trainer&room=VLE'");
     }
 
+    //get coursetype
+    var courseType = getCourseType();
+    displayTypeQuestions(courseType);
+
     //append the room data as a field in the form
     var roomElement = $("<input>")
     .attr("type", "hidden")

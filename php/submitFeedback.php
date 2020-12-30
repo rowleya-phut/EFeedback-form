@@ -25,7 +25,7 @@ if(empty($_POST["Free_comment"])){
 } else {
     $freeComment = $_POST["Free_comment"];
 }
-//TODO - add hidden nullable personal fields data (checked, name, jobtitle) to db and update the query below
+
 
 $sql = "INSERT INTO evaluation_tbl(
     evaluationId,
@@ -51,7 +51,7 @@ $sql = "INSERT INTO evaluation_tbl(
     RoomId,
     Personal_Name,
     Job_Title,
-    CourseType
+    CourseTypeId
     ) VALUES (
     $uniqueId,
     '".$_POST["staffGroup"]."',
@@ -93,10 +93,12 @@ $sql = "INSERT INTO evaluation_tbl(
         //print_r($value);
         $tr_sql = "INSERT INTO eval_quality_trainer_tbl(
             evaluationId,
-            trainingRatingId
+            trainingRatingId,
+            CourseTypeId
             ) VALUES (
                 $uniqueId,
-                $value 
+                $value,
+                '".$_POST["type"]."' 
             );";
         $sql = $sql.$tr_sql;
     }
@@ -106,10 +108,12 @@ $sql = "INSERT INTO evaluation_tbl(
         //print_r($value);
         $tr_sql = "INSERT INTO eval_impact_trainer_tbl(
             evaluationId,
-            impactId
+            impactId,
+            CourseTypeId
             ) VALUES (
                 $uniqueId,
-                $value 
+                $value,
+                '".$_POST["type"]."'
             );";
         $sql = $sql.$tr_sql;
     }
