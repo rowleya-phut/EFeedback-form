@@ -19,7 +19,7 @@ function pickTestRoom(){
 } 
 
 function pickTestType(){
-    $items=array("video","trainer");
+    $items=array("video");
     return $items[array_rand($items)];
 } 
 
@@ -31,9 +31,8 @@ function pickTestArray($items){
     return $items[array_rand($items)];
 } 
 
-for( $i = 0; $i<1; $i++ ) {
 
-    $testMessage = generateRandomString();
+    // $testMessage = "test message";
 
     $testRoom = pickTestRoom();
 
@@ -41,7 +40,7 @@ for( $i = 0; $i<1; $i++ ) {
 
     $testMessage = "Thank you";
 
-    $uniqueId = 1610964307;
+    $uniqueId = 1610964308;
     //print_r($uniqueId);
     $staffArray = array(1,2,3,4,5);
     $depArray = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
@@ -73,7 +72,6 @@ for( $i = 0; $i<1; $i++ ) {
     $environment = 4;
     // $name = pickOneFromArray($nameArray);
     // $role = pickOneFromArray($roleArray);
-
 
     $sqlNamed = "INSERT INTO evaluation_tbl(
         evaluationId,
@@ -232,5 +230,5 @@ else{
 
 echo(" ");
 
-}
+
 ?>
