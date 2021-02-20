@@ -41,7 +41,7 @@ for( $i = 0; $i<1; $i++ ) {
 
     $testMessage = "Thank you"
 
-    $uniqueId = 1610964307;
+    $uniqueId = '1610964307';
     //print_r($uniqueId);
     $staffArray = array(1,2,3,4,5);
     $depArray = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
