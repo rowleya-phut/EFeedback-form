@@ -39,9 +39,9 @@ for( $i = 0; $i<1; $i++ ) {
 
     $testType = pickTestType();
 
-    $testMessage = "Thank you"
+    $testMessage = "Thank you";
 
-    $uniqueId = '1610964307';
+    $uniqueId = 1610964307;
     //print_r($uniqueId);
     $staffArray = array(1,2,3,4,5);
     $depArray = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
@@ -71,8 +71,8 @@ for( $i = 0; $i<1; $i++ ) {
     $otherMaterials = 4;
     $admin = 4;
     $environment = 4;
-    $name = pickOneFromArray($nameArray);
-    $role = pickOneFromArray($roleArray);
+    // $name = pickOneFromArray($nameArray);
+    // $role = pickOneFromArray($roleArray);
 
 
     $sqlNamed = "INSERT INTO evaluation_tbl(
@@ -185,7 +185,7 @@ for( $i = 0; $i<1; $i++ ) {
     //quality one word choices
     $impactArray = array(1,3,5,12);
 
-    $testType == 'video'
+    $testType == 'video';
 
     //make a post request for each ticked check box of for trainer description and add to main query
     foreach($trainerArray as $value){
