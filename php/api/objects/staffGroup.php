@@ -1,18 +1,13 @@
 <?php
-class Form{
+class StaffGroup{
 
 //database connection and table name
     private $conn;
-    private $table_name = "user_tbl";
+    private $table_name = "staff_group_tbl";
 
     //object properties
-    public $username;
-    public $firstname;
-    public $lastname;
-    public $courseID;
-    public $completion;
-
-    //not include password for now
+    public $staffGroupId;
+    public $staffGroupName;
 
     //constructor with $db as database connection
     public function __construct($db){
@@ -24,11 +19,9 @@ class Form{
 
         //select all query
         $query = "SELECT
-        username, firstname, lastname
+        staffGroupId, staffGroupName
         FROM
-        " . $this->table_name . "
-        ORDER BY
-        username DESC";
+        " . $this->table_name . "";
 
         //prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -38,7 +31,6 @@ class Form{
 
         return $stmt;
     }
-
+    
 }
-
 ?>

@@ -5,25 +5,25 @@ header("Content-Type: application/json; charset=UTF-8");
 
 //include database and object files
 include_once '../config/configPDO.php';
-include_once '../objects/course.php';
+include_once '../objects/staffGroup.php';
 
 //instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
 
 //initialize object
-$course = new Course($db);
+$staffGroup = new StaffGroup($db);
 
 //query products
-$stmt = $course->read();
+$stmt = $staffGroup->read();
 $num = $stmt->rowCount();
 
 //check if more than 0 record found
 if($num>0){
 
     //products array
-    $courses_arr=array();
-    $courses_arr["records"]=array();
+    $staffGroups_arr=array();
+    $staffGroups_arr["records"]=array();
 
     //retrieve our table contents
     //fetch() is faster than fetchAll()
@@ -33,26 +33,26 @@ if($num>0){
         //just $name only
         extract($row);
 
-        $courses_item=array(
-            "courseId" => $courseId,
-            "courseTitle" => $courseTitle
+        $staffGroups_item=array(
+            "staffGroupId" => $staffGroupId,
+            "staffGroupName" => $staffGroupName
         );
 
-        array_push($courses_arr["records"], $courses_item);
+        array_push($staffGroups_arr["records"], $staffGroups_item);
     }
 
     //set response code - 200 OK
     http_response_code(200);
 
     //show products in json format
-    echo json_encode($courses_arr);
+    echo json_encode($staffGroups_arr);
 } else {
     //set response code 404 not found
     http_response_code(404);
 
     //tell user that no users have been found
     echo json_encode(
-        array("message" => "No courses found.") 
+        array("message" => "No staff groups found.") 
     );
 }
 
