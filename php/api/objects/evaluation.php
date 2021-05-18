@@ -8,35 +8,7 @@ class Evaluation{
 
     //object properties
     public $evaluationId;
-    public $staffGroupId;
-    public $departmentId;
-    public $courseId;
-    public $attend_in_own_time;
-    public $content_A_help_in_role;
-    public $content_B_meet_objectives;
-    public $content_C_help_department;
-    public $content_D_previous_knowledge;
-    public $content_E_satisfied_with_content;
-    public $learning_A_how_much_learned;
-    public $learning_B_how_much_improved;
-    public $learning_C_how_capable;
-
-    public $quality_A = array();
-
-    public $quality_B_trainer_rating;
-    public $quality_C_manual;
-    public $quality_D_other_materials;
-    public $quality_E_admin;
-    public $quality_F_environment;
-
-    public $impact_A = array();
-
-    public $free_comment;
-    public $time_accessed;
-    public $roomId;
-    public $personal_name;
-    public $job_title;
-    public $coursetypeId;
+    public $trainingRatingId;
 
 
     //constructor with $db as database connection
@@ -87,13 +59,13 @@ class Evaluation{
         return $stmt;
     }
 
-    function readQuality($evaluationId){
+    function readQuality(){
         $query = "SELECT 
         trainingRatingId,
         evaluationId
         FROM 
         " . $this->table_quality . "
-        WHERE evaluationId = $evaluationId";
+";
 
         //prepare query statement
         $stmt = $this->conn->prepare($query);
