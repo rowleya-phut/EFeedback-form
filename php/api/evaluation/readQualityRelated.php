@@ -75,7 +75,7 @@ if($num>0){
 
     //show products in json format
     echo json_encode($evaluations_arr);
-    echo json_encode($quality_arr);
+    echo json_encode($quality_arr); //TODO - DELETE ONE OF THESE
 } else {
     //set response code 404 not found
     http_response_code(404);
