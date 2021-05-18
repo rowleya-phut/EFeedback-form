@@ -5,6 +5,12 @@ class Evaluation{
     private $conn;
     private $table_name = "evaluation_tbl";
     private $table_quality = "eval_quality_trainer_tbl";
+    private $table_impact = "eval_impact_trainer_tbl";
+    private $table_quality_desc = "quality_a_trainer_tbl";
+    private $table_impact_desc = "impact_f_experience_tbl";
+    private $staff_group = "staff_group_tbl";
+    private $department_tbl = "department_tbl";
+    private $course_tbl = "course_tbl";
 
     //object properties
     public $evaluationId;
@@ -50,9 +56,9 @@ class Evaluation{
         //select all query
         $query = "SELECT
         evaluationId,
-        staffGroupId,
-        departmentId,
-        courseId,
+        " . $this->table_name . ".staffGroupId,
+        " . $this->table_name . ".departmentId,
+        " . $this->table_name . ".courseId,
         attend_in_own_time,
         content_A_help_in_role,
         content_B_meet_objectives,
@@ -72,9 +78,24 @@ class Evaluation{
         roomId,
         personal_name,
         job_title,
-        coursetypeId
+        coursetypeId,
+        " . $this->staff_group . ".staffGroupName,
+        " . $this->department_tbl . ".departmentName,
+        " . $this->course_tbl . ".courseTitle
         FROM
         " . $this->table_name . "
+        INNER JOIN
+        " . $this->staff_group . "
+        ON 
+        " . $this->staff_group . ".staffGroupId = " . $this->table_name . ".staffGroupId
+        INNER JOIN
+        " . $this->department_tbl . "
+        ON 
+        " . $this->department_tbl . ".departmentId = " . $this->table_name . ".departmentId
+        INNER JOIN
+        " . $this->course_tbl . "
+        ON 
+        " . $this->course_tbl . ".courseId = " . $this->table_name . ".courseId
         ORDER BY
         evaluationId ASC";
         
@@ -87,55 +108,48 @@ class Evaluation{
         return $stmt;
     }
 
-    function readQuality(){
-        $query = "SELECT 
-        trainingRatingId,
-        evaluationId
-        FROM 
-        " . $this->table_quality . "
-        ";
 
-        //prepare query statement
-        $stmt = $this->conn->prepare($query);
+    
 
-        //execute query
-        $stmt->execute();
-
-        return $stmt;
-    }
-
-    function readQualityRelated(){
-
-        $query = "SELECT 
-        " . $this->table_name . ".evaluationId,
-        " . $this->table_name . ".staffGroupId,
-        " . $this->table_name . ".departmentId,
-        " . $this->table_quality . ".trainingRatingId AS quality_A
-        FROM 
-        " . $this->table_name . "
-        INNER JOIN
-        " . $this->table_quality. " ON " . $this->table_quality. ".evaluationId = " . $this->table_name . ".evaluationId
-        ";
-
-
-        //prepare query statement
-        $stmt = $this->conn->prepare($query);
-
-        //execute query
-        $stmt->execute();
-
-        // return $stmt;
-        return $stmt;
-
-    }
-
-    function readQualityRelated2($evalId){
+    //GET QUALITY RELATED DATA
+    function readQualityRelated($evalId){
         $query = "SELECT
-        " . $this->table_quality . ".trainingRatingId AS quality_A
+        " . $this->table_quality . ".trainingRatingId AS quality_A,
+        " . $this->table_quality . ".courseTypeId,
+        " . $this->table_quality_desc . ".trainerRatingDesc,
+        " . $this->table_quality_desc . ".videoDescription
         FROM  
-        " . $this->table_quality . "    
+        " . $this->table_quality . " 
+        INNER JOIN
+        " . $this->table_quality_desc . "
+        ON
+        " . $this->table_quality_desc . ".trainingRatingId =  " . $this->table_quality . ".trainingRatingId
         WHERE   
         " . $this->table_quality . ".evaluationId = $evalId 
+        ";
+
+        //prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        //execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    //GET IMPACT RELATED DATA
+    function readImpactRelated($evalId){
+        $query = "SELECT
+        " . $this->table_impact . ".impactId AS impact_A,
+        " . $this->table_impact_desc . ".impactDesc
+        FROM  
+        " . $this->table_impact  . "  
+        INNER JOIN 
+        " . $this->table_impact_desc  . "  
+        ON
+        " . $this->table_impact_desc . ".impactId  =  " . $this->table_impact . ".impactId 
+        WHERE   
+        " . $this->table_impact  . ".evaluationId = $evalId 
         ";
 
         //prepare query statement
