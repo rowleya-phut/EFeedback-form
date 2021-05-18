@@ -4,6 +4,7 @@ class Evaluation{
 //database connection and table name
     private $conn;
     private $table_name = "evaluation_tbl";
+    private $table_quality = "eval_quality_trainer_tbl";
 
     //object properties
     public $evaluationId;
@@ -86,24 +87,22 @@ class Evaluation{
         return $stmt;
     }
 
-    //  //read users
-    //  function read(){
+    function readQuality($evaluationId){
+        $query = "SELECT 
+        trainingRatingId,
+        evaluationId
+        FROM 
+        " . $this->table_quality . "
+        WHERE evaluationId = $evaluationId";
 
-    //     //select all query
-    //     $query = "SELECT
-    //     evaluationId
-    //     FROM
-    //     " . $this->table_name . "
-    //     ";
+        //prepare query statement
+        $stmt = $this->conn->prepare($query);
 
-    //     //prepare query statement
-    //     $stmt = $this->conn->prepare($query);
+        //execute query
+        $stmt->execute();
 
-    //     //execute query
-    //     $stmt->execute();
-
-    //     return $stmt;
-    // }
+        return $stmt;
+    }
 
 
 }

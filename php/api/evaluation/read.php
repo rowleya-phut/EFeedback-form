@@ -13,6 +13,7 @@ $db = $database->getConnection();
 
 //initialize object
 $evaluation = new Evaluation($db);
+$tempEvaluationId;
 
 //query products
 $stmt = $evaluation->read();
@@ -32,10 +33,10 @@ if($num>0){
         //this will make $row['name'] to
         //just $name only
         extract($row);
-
+        $tempEvaluationId = "evaluationId";
         $evaluations_item=array(
             "evaluationId" => $evaluationId,
-
+            
             "staffGroupId" =>  $staffGroupId,
             "departmentId" =>  $departmentId,
             "courseId" =>  $courseId,
@@ -49,7 +50,7 @@ if($num>0){
             "learning_B_how_much_improved" =>  $learning_B_how_much_improved,
             "learning_C_how_capable" =>  $learning_C_how_capable,
         
-            // public $quality_A = array();
+            // relatedQualityFetch(1) => $quality_A,
         
             "quality_B_trainer_rating" =>  $quality_B_trainer_rating,
             "quality_C_manual" =>  $quality_C_manual,
@@ -66,7 +67,6 @@ if($num>0){
             "job_title" =>  $job_title,
             "coursetypeId" =>  $coursetypeId
 
-            
         );
 
         array_push($evaluations_arr["records"], $evaluations_item);
@@ -86,6 +86,49 @@ if($num>0){
         array("message" => "No evaluations found.") 
     );
 }
+
+//RELATED QUALITY QUERY ////////
+//query products
+function getQualityData($evaluationId){
+
+
+    $stmt = $evaluation->readQuality($evaluationId);
+    $num = $stmt->rowCount();
+    if($num>0){
+        //products array
+        $evaluationsq_arr=array();
+        $evaluationsq_arr["q_records"]=array();
+        //retrieve our table contents
+        //fetch() is faster than fetchAll()
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            //extract row
+            //this will make $row['name'] to
+            //just $name only
+            extract($row);
+            $evaluationsq_item=array(
+                "evaluationId" => $evaluationId,
+                "trainingRatingId" => $trainingRatingId
+            );
+            array_push($evaluationsq_arr["q_records"], $evaluationsq_item);
+        }
+        //set response code - 200 OK
+        http_response_code(200);
+        //show products in json format
+        echo json_encode($evaluationsq_arr);
+    } else {
+        //set response code 404 not found
+        http_response_code(404);
+        //tell user that no users have been found
+        echo json_encode(
+            array("message" => "No q evaluations found.") 
+        );
+    }
+
+}
+
+// getQualityData($tempEvaluationId);
+
+
 
 
 ?>
