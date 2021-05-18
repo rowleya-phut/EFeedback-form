@@ -51,7 +51,7 @@ if($num>0){
             "learning_B_how_much_improved" =>  $learning_B_how_much_improved,
             "learning_C_how_capable" =>  $learning_C_how_capable,
         
-            // relatedQualityFetch(1) => $quality_A,
+            // ["barry"] => $quality_A,
         
             "quality_B_trainer_rating" =>  $quality_B_trainer_rating,
             "quality_C_manual" =>  $quality_C_manual,
@@ -71,9 +71,18 @@ if($num>0){
         );
 
         array_push($evaluations_arr["records"], $evaluations_item);
+
+        // //NESTED QUERY//
+        // //query products
+        // $stmtQ = $evaluation->readQuality();
+        // $numQ = $stmtQ->rowCount();
+        // while ($row = $stmtQ->fetch(PDO::FETCH_ASSOC)){
+        //     // "jerry" => $qualityA);    
+        // }
+        // //
         
     }
-    array_push($evaluations_arr["records"]["quality"], "barry");
+    
 
     //set response code - 200 OK
     http_response_code(200);
